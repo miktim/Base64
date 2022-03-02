@@ -2,7 +2,7 @@
 
 /*
  * Base64Test. MIT (c) 2021 miktim@mail.ru
- * Need jdk8 or newer!
+ * Requires jdk8 or newer!
  */
 
 import java.util.Arrays;

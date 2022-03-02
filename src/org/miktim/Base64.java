@@ -1,8 +1,8 @@
 /*
- *  Base64 encoder/decoder. MIT (c) 2019,2021 miktim@mail.ru
+ *  Java simple Base64 encoder/decoder. MIT (c) 2019,2021 miktim@mail.ru
  *  Notes:
  *  - encoded as single line;
- *  - decoder removes CRLF.
+ *  - decoder removes CRLF, the padding '=' characters at the end are considered optional.
  */
 package org.miktim;
 
@@ -12,6 +12,10 @@ public class Base64 {
     private static final byte[] B64_BYTES = B64_CHARS.getBytes();
 
     public static final String encode(byte[] b) {
+// Java8+
+//        return java.util.Base64.getEncoder().encodeToString(b);
+// Android API 8+
+//        return android.util.Base64.encodeToString(b, 0x00000002); // NO_WRAP
         byte[] s = new byte[((b.length + 2) / 3 * 4)];
         int bi = 0;
         int si = 0;
@@ -32,6 +36,10 @@ public class Base64 {
     }
 
     public static final byte[] decode(String s) {
+// Java8+
+//        return java.util.Base64.getDecoder().decode(s);
+// Android API 8+
+//        return android.util.Base64.decode(s, 0x00000000);   // DEFAULT
         s = s.replaceAll("[\r\n]", "").replaceAll("=+$", ""); // remove CRLF and padding
         byte[] b = new byte[(s.length() / 4 * 3)
                 + Math.max(s.length() % 4 - 1, 0)]; // 0=0, 1=0, 2=1, 3=2
