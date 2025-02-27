@@ -1,4 +1,4 @@
-# Simple Java Base64 encoder/decoder, MIT (c) 2020-2021 miktim@mail.ru
+Simple Java Base64 encoder/decoder, MIT (c) 2020-2021 miktim@mail.ru
 
 Release notes:
   - encoding/decoding is done as specified in the RFC 4648 "4. Base 64 Encoding";
@@ -8,12 +8,12 @@ Release notes:
 
 package org.miktim
 
-Overview:
-  Class Base64 public methods:
-    static String encode(byte[] b);
-    static byte[] decode(String s) throws IllegalArgumentException;
+  Class Base64 public methods:  
 
-See also core classes:
-  - Java 8+: java.util.Base64
-  - Android API 8+: android.util.Base64
+    static String encode(byte[] b);  
+    static byte[] decode(String s) throws IllegalArgumentException;  
+
+See also core classes:  
+  - Java 8+: java.util.Base64  
+  - Android API 8+: android.util.Base64  
 
